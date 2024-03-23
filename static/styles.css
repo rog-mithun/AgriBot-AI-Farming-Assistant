@@ -1,0 +1,40 @@
+/* Additional CSS for fixed panel height */
+.fixed-panel-height {
+    height: calc(100vh - 20px); /* Adjust the height as needed */
+}
+
+/* Additional CSS for separate scrollbars */
+.overflow-auto {
+    overflow-y: auto; /* Auto scrollbar for vertical overflow */
+}
+
+/* Additional CSS for chat message styling */
+.user-message {
+    text-align: left;
+    background-color: #8abdde; /* Light blue background for user messages */
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.bot-message {
+    text-align: right;
+    background-color: #e3dede; /* Light gray background for bot responses */
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Additional CSS for card header styling */
+.card-header {
+    font-size: 1.2rem; /* Slightly bigger font size */
+    text-align: center; /* Center alignment */
+    color: #fffefe;
+    background-color: #4fccd7;
+}
+
+.fixed-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
