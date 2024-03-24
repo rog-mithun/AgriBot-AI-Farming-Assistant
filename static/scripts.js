@@ -175,10 +175,13 @@ window.addEventListener('resize', updateInputFooterPosition);
 // Initial update of footer position
 updateInputFooterPosition();
 
- // JavaScript to toggle the display of saved chats panel
- document.getElementById('saved-chats-icon').addEventListener('click', function() {
-    var savedChatsPanel = document.getElementById('saved-chats');
-    savedChatsPanel.classList.toggle('d-none'); // Toggle display
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Add event listener to the saved chat icon
+    document.getElementById('saved-chats-icon').addEventListener('click', function() {
+        var savedChatsPanel = document.getElementById('saved-chats').parentElement.parentElement;
+        savedChatsPanel.classList.toggle('d-none'); // Toggle display
+    });
 });
 
 
