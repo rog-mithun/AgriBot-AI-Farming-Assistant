@@ -177,7 +177,7 @@ updateInputFooterPosition();
 
  // JavaScript to toggle the display of saved chats panel
  document.getElementById('saved-chats-icon').addEventListener('click', function() {
-    var savedChatsPanel = document.getElementById('saved-chats').parentElement.parentElement;
+    var savedChatsPanel = document.getElementById('saved-chats');
     savedChatsPanel.classList.toggle('d-none'); // Toggle display
 });
 
