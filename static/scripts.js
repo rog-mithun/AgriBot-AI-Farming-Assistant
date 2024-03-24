@@ -26,7 +26,7 @@ document.getElementById('clear-chat-btn').addEventListener('click', clearSavedCh
 function toggleSavedChatsPanel() {
     var savedChatsPanel = document.querySelector('.saved-chats-panel');
     var savedChatsIcon = document.getElementById('saved-chats-icon');
-    var isMobileScreen = window.matchMedia("(max-width: 767px)").matches; // Check if screen size is mobile (less than 768px width)
+    var isMobileScreen = window.matchMedia("(max-width: 640px)").matches; // Check if screen size is mobile (less than 768px width)
 
     // If it's a mobile screen and the icon is active, toggle overlay class
     if (isMobileScreen && savedChatsIcon.classList.contains('active')) {
