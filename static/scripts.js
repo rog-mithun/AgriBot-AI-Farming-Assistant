@@ -22,6 +22,16 @@ function clearSavedChats() {
 // Event listener for clear chat button click
 document.getElementById('clear-chat-btn').addEventListener('click', clearSavedChats);
 
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Add event listener to the saved chat icon
+    document.getElementById('saved-chats-icon').addEventListener('click', function() {
+        var savedChatsPanel = document.getElementById('saved-chats').parentElement.parentElement;
+        savedChatsPanel.classList.remove('d-none'); // Remove the d-none class to display the panel
+    });
+});
+
+
 
 // Function to send a message to the chat
 async function sendMessage(message) {
@@ -175,14 +185,7 @@ window.addEventListener('resize', updateInputFooterPosition);
 // Initial update of footer position
 updateInputFooterPosition();
 
-// Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Add event listener to the saved chat icon
-    document.getElementById('saved-chats-icon').addEventListener('click', function() {
-        var savedChatsPanel = document.getElementById('saved-chats').parentElement.parentElement;
-        savedChatsPanel.classList.toggle('d-none'); // Toggle display
-    });
-});
+
 
 
 
