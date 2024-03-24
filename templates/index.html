@@ -18,10 +18,11 @@
 
     <div class="container-fluid h-100">
         <div class="row h-100">
-            <div class="col-md-4">
+            <div class="col-md-4 saved-chats-panel d-none"> <!-- Added 'saved-chats-panel' class and updated display classes -->
                 <div class="card fixed-panel-height overflow-auto">
                     <div class="card-header">
                         Saved Chats
+                        <button id="exit-btn" class="btn btn-sm btn-danger float-right">Exit</button> <!-- Exit button -->
                     </div>
                     <div class="card-body overflow-auto" id="saved-chats">
                         <!-- Saved chats will be displayed here -->
@@ -55,7 +56,6 @@
             </div>
         </div>
     </div>
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
