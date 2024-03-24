@@ -7,6 +7,13 @@ function openNewChat() {
     displayWelcomeMessage();
 }
 
+// Event listener for new chat button click
+document.addEventListener('DOMContentLoaded', function() {
+    // Display welcome message for the first time
+    displayWelcomeMessage();
+    document.getElementById('new-chat-btn').addEventListener('click', openNewChat);
+});
+
 // Function to clear the saved chats
 function clearSavedChats() {
     document.getElementById('saved-chats').innerHTML = '';
