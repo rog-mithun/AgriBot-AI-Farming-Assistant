@@ -15,7 +15,7 @@
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
-    margin-right: auto; /* Add margin to the right to position on the left */
+    margin-left: auto; /* Add margin to the left to position on the right */
     max-width: 60%; /* Limit the width to 60% of the container */
 }
 
@@ -25,7 +25,7 @@
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
-    margin-left: auto; /* Add margin to the left to position on the right */
+    margin-right: auto; /* Add margin to the right to position on the left */
     max-width: 60%; /* Limit the width to 60% of the container */
 }
 
