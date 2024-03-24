@@ -7,13 +7,6 @@ function openNewChat() {
     displayWelcomeMessage();
 }
 
-// Event listener for new chat button click
-document.addEventListener('DOMContentLoaded', function() {
-    // Display welcome message for the first time
-    displayWelcomeMessage();
-    document.getElementById('new-chat-btn').addEventListener('click', openNewChat);
-});
-
 // Function to clear the saved chats
 function clearSavedChats() {
     document.getElementById('saved-chats').innerHTML = '';
@@ -22,14 +15,15 @@ function clearSavedChats() {
 // Event listener for clear chat button click
 document.getElementById('clear-chat-btn').addEventListener('click', clearSavedChats);
 
-// Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Add event listener to the saved chat icon
-    document.getElementById('saved-chats-icon').addEventListener('click', function() {
-        var savedChatsPanel = document.getElementById('saved-chats').parentElement.parentElement;
-        savedChatsPanel.classList.remove('d-none'); // Remove the d-none class to display the panel
-    });
-});
+// Function to toggle the visibility of the saved chats panel
+function toggleSavedChatsPanel() {
+    var savedChatsPanel = document.getElementById('saved-chats').parentElement.parentElement;
+    savedChatsPanel.classList.toggle('d-none'); // Toggle the 'd-none' class to display/hide the panel
+}
+
+// Event listener for clicking the saved chats icon
+document.getElementById('saved-chats-icon').addEventListener('click', toggleSavedChatsPanel);
+
 
 
 
