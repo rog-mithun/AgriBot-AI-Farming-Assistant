@@ -24,50 +24,13 @@ document.getElementById('clear-chat-btn').addEventListener('click', clearSavedCh
 
 // Function to toggle the visibility of the saved chats panel
 function toggleSavedChatsPanel() {
-    var savedChatsPanel = document.querySelector('.saved-chats-panel');
-    var savedChatsIcon = document.getElementById('saved-chats-icon');
-    var isMobileScreen = window.matchMedia("(max-width: 640px)").matches; // Check if screen size is mobile (less than 768px width)
-
-    // If it's a mobile screen and the icon is active, toggle overlay class
-    if (isMobileScreen && savedChatsIcon.classList.contains('active')) {
-        savedChatsPanel.classList.toggle('overlay');
-    } else {
-        savedChatsPanel.classList.toggle('d-md-block'); // Toggle the 'd-md-block' class to display/hide the panel on medium screens and above
-    }
-
-    savedChatsIcon.classList.toggle('active'); // Toggle active class to track panel state
-
-    adjustSavedChatsPanelPosition(); // Call function to adjust panel position
+    var savedChatsPanel = document.getElementById('saved-chats').parentElement.parentElement;
+    savedChatsPanel.classList.toggle('d-none'); // Toggle the 'd-none' class to display/hide the panel
 }
 
 // Event listener for clicking the saved chats icon
 document.getElementById('saved-chats-icon').addEventListener('click', toggleSavedChatsPanel);
 
-// Function to adjust the saved chats panel's position based on screen size and panel state
-function adjustSavedChatsPanelPosition() {
-    var savedChatsPanel = document.querySelector('.saved-chats-panel');
-    var isMobileScreen = window.matchMedia("(max-width: 767px)").matches; // Check if screen size is mobile (less than 768px width)
-    var isActive = document.getElementById('saved-chats-icon').classList.contains('active'); // Check if panel is active
-
-    if (isMobileScreen && isActive) {
-        savedChatsPanel.classList.add('position-fixed', 'w-100', 'h-100', 'top-0', 'start-0', 'z-index-1050'); // Add classes to position panel over chatbot on mobile screens when active
-    } else {
-        savedChatsPanel.classList.remove('position-fixed', 'w-100', 'h-100', 'top-0', 'start-0', 'z-index-1050'); // Remove classes to revert to default position
-    }
-}
-
-// Call the adjustSavedChatsPanelPosition function initially and on window resize
-adjustSavedChatsPanelPosition();
-window.addEventListener('resize', adjustSavedChatsPanelPosition);
-
-
-// Function to handle click on exit button within the saved chats panel
-document.getElementById('exit-btn').addEventListener('click', function() {
-    var savedChatsIcon = document.getElementById('saved-chats-icon');
-    if (savedChatsIcon.classList.contains('active')) {
-        toggleSavedChatsPanel(); // Revert to previous state
-    }
-});
 
 
 
