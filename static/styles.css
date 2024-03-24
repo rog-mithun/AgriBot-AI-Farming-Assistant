@@ -38,3 +38,28 @@
     bottom: 0;
     width: 100%;
 }
+
+/* Additional CSS for small screens */
+@media (max-width: 768px) {
+    #saved-chats-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 9999;
+    }
+
+    .col-md-4 {
+        display: none; /* Hide the saved chats column */
+    }
+
+    .col-md-8 {
+        width: 100%; /* Expand the chat column to full width */
+    }
+}
+
+/* Additional CSS for Clear Chat button */
+.clear-chat-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}

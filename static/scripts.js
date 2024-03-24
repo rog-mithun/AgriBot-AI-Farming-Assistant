@@ -2,12 +2,26 @@
 function openNewChat() {
     // Clear existing chat messages
     document.getElementById('chat-messages').innerHTML = '';
+
+    // Display welcome message for new chat
+    displayWelcomeMessage();
 }
 
 // Event listener for new chat button click
 document.addEventListener('DOMContentLoaded', function() {
+    // Display welcome message for the first time
+    displayWelcomeMessage();
     document.getElementById('new-chat-btn').addEventListener('click', openNewChat);
 });
+
+// Function to clear the saved chats
+function clearSavedChats() {
+    document.getElementById('saved-chats').innerHTML = '';
+}
+
+// Event listener for clear chat button click
+document.getElementById('clear-chat-btn').addEventListener('click', clearSavedChats);
+
 
 // Function to send a message to the chat
 async function sendMessage(message) {
@@ -72,22 +86,39 @@ document.getElementById('user-input').addEventListener('keypress', function(even
 // Function to save the current chat
 function saveChat() {
     const chatMessages = document.getElementById('chat-messages');
-    const messages = chatMessages.querySelectorAll('.message');
+    const messages = chatMessages.querySelectorAll('.message:not(.saved-chat)');
     const savedChats = document.getElementById('saved-chats');
 
     // Create a new div element to store the saved chat
     const savedChatDiv = document.createElement('div');
     savedChatDiv.classList.add('saved-chat');
 
-    // Clone each message and append it to the saved chat div
+    // Get existing saved messages
+    const existingSavedMessages = savedChats.querySelectorAll('.message');
+
+    // Iterate over each message to check if it's already saved or the welcome message
     messages.forEach(message => {
-        const clonedMessage = message.cloneNode(true);
-        savedChatDiv.appendChild(clonedMessage);
+        let isAlreadySaved = false;
+        if (message.textContent.trim() === 'Welcome! How can I assist you today?') {
+            isAlreadySaved = true;
+        } else {
+            existingSavedMessages.forEach(savedMessage => {
+                if (savedMessage.textContent.trim() === message.textContent.trim()) {
+                    isAlreadySaved = true;
+                }
+            });
+        }
+        // If the message is not already saved or the welcome message, clone and append it
+        if (!isAlreadySaved) {
+            const clonedMessage = message.cloneNode(true);
+            savedChatDiv.appendChild(clonedMessage);
+        }
     });
 
     // Append the saved chat div to the saved chats panel
     savedChats.appendChild(savedChatDiv);
 }
+
 
 // Event listener for save chat button click
 document.getElementById('save-chat-btn').addEventListener('click', saveChat);
@@ -143,3 +174,21 @@ window.addEventListener('resize', updateInputFooterPosition);
 
 // Initial update of footer position
 updateInputFooterPosition();
+
+ // JavaScript to toggle the display of saved chats panel
+ document.getElementById('saved-chats-icon').addEventListener('click', function() {
+    var savedChatsPanel = document.getElementById('saved-chats').parentElement.parentElement;
+    savedChatsPanel.classList.toggle('d-none'); // Toggle display
+});
+
+
+
+// Function to display welcome message for new chat
+function displayWelcomeMessage() {
+    var chatMessages = document.getElementById('chat-messages');
+    var botMessage = document.createElement('div');
+    botMessage.classList.add('message', 'bot-message');
+    botMessage.textContent = 'Welcome! How can I assist you today?';
+    chatMessages.appendChild(botMessage);
+}
+

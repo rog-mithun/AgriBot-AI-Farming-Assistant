@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <!-- Saved chats icon -->
+    <div class="saved-chats-icon" id="saved-chats-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M20 20H4V4h5V2H4c-1.1 0-1.99.9-1.99 2L2 20c0 1.1.89 2 1.99 2H20c1.1 0 2-.9 2-2v-5h-2v5zM12 6V4h-2v2H8v2h2v2h2V8h2V6h-2z"/>
+        </svg>
+    </div>
+
     <div class="container-fluid h-100">
         <div class="row h-100">
             <div class="col-md-4">
@@ -18,9 +26,12 @@
                     <div class="card-body overflow-auto" id="saved-chats">
                         <!-- Saved chats will be displayed here -->
                     </div>
-                    <div id="new-chat-footer" class="card-footer">
+                    <div id="new-chat-footer" class="card-footer d-flex justify-content-between">
                         <button id="new-chat-btn" class="btn btn-primary">New Chat</button>
-                    </div>                
+                        <div class="clear-chat-btn">
+                            <button id="clear-chat-btn" class="btn btn-danger">Clear Chat</button>
+                        </div>
+                    </div>                                
                 </div>
             </div>
             <div class="col-md-8">
@@ -30,7 +41,6 @@
                     </div>
                     <div class="card-body overflow-auto" id="chat-messages">
                         <!-- Previous chat messages will be displayed here -->
-                        <div class="message bot-message">Welcome! How can I assist you today?</div>
                     </div>
                     <div id="new-message-footer" class="card-footer">
                         <div class="input-group">
